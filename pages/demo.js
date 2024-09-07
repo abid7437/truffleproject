@@ -8,441 +8,78 @@ export default function Job() {
     }
     return (
         <>
-            <Layout headerStyle={1} footerStyle={1} breadcrumbTitle={<>Featured <span>Jobs</span></>}>
-                <section className="job-area pb-150">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-lg-12">
-                                <div className="job-tab-wrap">
-                                    <ul className="nav nav-tabs" id="myTab" role="tablist">
-                                        <li className="nav-item" onClick={() => handleOnClick(1)}>
-                                            <button className={activeIndex == 1 ? "nav-link active" : "nav-link"}>View all</button>
-                                        </li>
-                                        <li className="nav-item" onClick={() => handleOnClick(2)}>
-                                            <button className={activeIndex == 2 ? "nav-link active" : "nav-link"} aria-selected="false">Development</button>
-                                        </li>
-                                        <li className="nav-item" onClick={() => handleOnClick(3)}>
-                                            <button className={activeIndex == 3 ? "nav-link active" : "nav-link"} aria-selected="false">Design</button>
-                                        </li>
-                                        <li className="nav-item" onClick={() => handleOnClick(4)}>
-                                            <button className={activeIndex == 4 ? "nav-link active" : "nav-link"} aria-selected="false">Marketing</button>
-                                        </li>
-                                        <li className="nav-item" onClick={() => handleOnClick(5)}>
-                                            <button className={activeIndex == 5 ? "nav-link active" : "nav-link"} aria-selected="false">Customer services</button>
-                                        </li>
-                                        <li className="nav-item" onClick={() => handleOnClick(6)}>
-                                            <button className={activeIndex == 6 ? "nav-link active" : "nav-link"} aria-selected="false">Management</button>
-                                        </li>
-                                    </ul>
-                                    <div className="tab-content" id="myTabContent">
-                                        <div className={activeIndex == 1 ? "tab-pane fade show active" : "tab-pane fade"}>
-                                            <div className="job-item-wrap">
-                                                <div className="job-item">
-                                                    <div className="job-content">
-                                                        <h2 className="title"><Link href="/job-details">Senior Software Engineer</Link></h2>
-                                                        <p>We're looking for an experienced senior softwar engineer to join our team.</p>
-                                                        <ul className="list-wrap">
-                                                            <li><Link href="/job-details"><i className="far fa-map-marker-alt" />Remote</Link></li>
-                                                            <li><Link href="/job-details"><i className="far fa-clock" />Full-time</Link></li>
-                                                        </ul>
+            <Layout headerStyle={1} footerStyle={1} breadcrumbTitle={<>Try a <span>Demo</span></>}>
+            <div>
+                    {/* faq-area */}
+                    
+                    {/* faq-area-end */}
+                    {/* help-area */}
+                    <section className="help-area pb-50">
+                        <div className="container">
+                          
+                            <div className="row justify-content-center">
+                               
+                                           
+                                            <div className="col-md-12">
+                                                <div className="help-center-item">
+                                                    <div className="icon">
+                                                        <img id="uploadicon" src="assets/img/voice/upload.png"  alt="" />
                                                     </div>
-                                                    <div className="job-detail-btn">
-                                                        <Link href="/job-details.btn">View job<i className="far fa-arrow-right" /></Link>
+                                                    <div className="content">
+                                                        <a >Upload File</a>
+                                                        <p>The best way to get answer faster.</p>
                                                     </div>
                                                 </div>
-                                                <div className="job-item">
-                                                    <div className="job-content">
-                                                        <h2 className="title"><Link href="/job-details">Customer Success Manager</Link></h2>
-                                                        <p>We're looking for an experienced senior softwar engineer to join our team.</p>
-                                                        <ul className="list-wrap">
-                                                            <li><Link href="/job-details"><i className="far fa-map-marker-alt" />Remote</Link></li>
-                                                            <li><Link href="/job-details"><i className="far fa-clock" />Full-time</Link></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div className="job-detail-btn">
-                                                        <Link href="/job-details.btn">View job<i className="far fa-arrow-right" /></Link>
-                                                    </div>
-                                                </div>
-                                                <div className="job-item">
-                                                    <div className="job-content">
-                                                        <h2 className="title"><Link href="/job-details">Product Designer</Link></h2>
-                                                        <p>We're looking for a mid-level product designer to join our team.</p>
-                                                        <ul className="list-wrap">
-                                                            <li><Link href="/job-details"><i className="far fa-map-marker-alt" />Remote</Link></li>
-                                                            <li><Link href="/job-details"><i className="far fa-clock" />Full-time</Link></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div className="job-detail-btn">
-                                                        <Link href="/job-details.btn">View job<i className="far fa-arrow-right" /></Link>
-                                                    </div>
-                                                </div>
-                                                <div className="job-item">
-                                                    <div className="job-content">
-                                                        <h2 className="title"><Link href="/job-details">Backend Developer</Link></h2>
-                                                        <p>We're looking for an experienced backend developer to join our team.</p>
-                                                        <ul className="list-wrap">
-                                                            <li><Link href="/job-details"><i className="far fa-map-marker-alt" />Remote</Link></li>
-                                                            <li><Link href="/job-details"><i className="far fa-clock" />Full-time</Link></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div className="job-detail-btn">
-                                                        <Link href="/job-details.btn">View job<i className="far fa-arrow-right" /></Link>
-                                                    </div>
-                                                </div>
-                                                <div className="job-item">
-                                                    <div className="job-content">
-                                                        <h2 className="title"><Link href="/job-details">Engineering Manager</Link></h2>
-                                                        <p>We're looking for a engineering manager to join our team.</p>
-                                                        <ul className="list-wrap">
-                                                            <li><Link href="/job-details"><i className="far fa-map-marker-alt" />Remote</Link></li>
-                                                            <li><Link href="/job-details"><i className="far fa-clock" />Full-time</Link></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div className="job-detail-btn">
-                                                        <Link href="/job-details.btn">View job<i className="far fa-arrow-right" /></Link>
-                                                    </div>
-                                                </div>
-                                                <div className="job-item">
-                                                    <div className="job-content">
-                                                        <h2 className="title"><Link href="/job-details">Content Writer</Link></h2>
-                                                        <p>We're looking for a content writer to join our team.</p>
-                                                        <ul className="list-wrap">
-                                                            <li><Link href="/job-details"><i className="far fa-map-marker-alt" />Remote</Link></li>
-                                                            <li><Link href="/job-details"><i className="far fa-clock" />Full-time</Link></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div className="job-detail-btn">
-                                                        <Link href="/job-details.btn">View job<i className="far fa-arrow-right" /></Link>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section className="counter-area-three pb-130">
+                        <div className="container">
+                            <div className="row">
+                                <div className="col-lg-7">
+                                    <div className="counter-content">
+                                        <div className="section-title-four mb-40">
+                                            <h2 className="title">AI can write content just like humans can</h2>
                                         </div>
-                                        <div className={activeIndex == 2 ? "tab-pane fade show active" : "tab-pane fade"}>
-                                            <div className="job-item-wrap">
-                                                <div className="job-item">
-                                                    <div className="job-content">
-                                                        <h2 className="title"><Link href="/job-details">Product Designer</Link></h2>
-                                                        <p>We're looking for a mid-level product designer to join our team.</p>
-                                                        <ul className="list-wrap">
-                                                            <li><Link href="/job-details"><i className="far fa-map-marker-alt" />Remote</Link></li>
-                                                            <li><Link href="/job-details"><i className="far fa-clock" />Full-time</Link></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div className="job-detail-btn">
-                                                        <Link href="/job-details.btn">View job<i className="far fa-arrow-right" /></Link>
+                                        <p>By using Natural Language Processing (NLP) techniques, AI can understand the context, tone, and intent of a given piece of content, and produce written output that's relevant and engaging. This technology is especially useful for generating large volumes of content quickly and accurately, which can save businesses a significant amount of time and resources.</p>
+                                    </div>
+                                </div>
+                                <div className="col-lg-5">
+                                    <div className="counter-item-wrap-three">
+                                        <ul className="list-wrap">
+                                            <li>
+                                                <div className="counter-item-three">
+                                                <div className="icon">
+                                                        <img id="uploadicon" src="assets/img/voice/upload.png"  alt="" />
                                                     </div>
                                                 </div>
-                                                <div className="job-item">
-                                                    <div className="job-content">
-                                                        <h2 className="title"><Link href="/job-details">Backend Developer</Link></h2>
-                                                        <p>We're looking for an experienced backend developer to join our team.</p>
-                                                        <ul className="list-wrap">
-                                                            <li><Link href="/job-details"><i className="far fa-map-marker-alt" />Remote</Link></li>
-                                                            <li><Link href="/job-details"><i className="far fa-clock" />Full-time</Link></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div className="job-detail-btn">
-                                                        <Link href="/job-details.btn">View job<i className="far fa-arrow-right" /></Link>
+                                            </li>
+                                            <li>
+                                                <div className="counter-item-three">
+                                                <div className="icon">
+                                                        <img id="uploadicon" src="assets/img/voice/upload.png"  alt="" />
                                                     </div>
                                                 </div>
-                                                <div className="job-item">
-                                                    <div className="job-content">
-                                                        <h2 className="title"><Link href="/job-details">Engineering Manager</Link></h2>
-                                                        <p>We're looking for a engineering manager to join our team.</p>
-                                                        <ul className="list-wrap">
-                                                            <li><Link href="/job-details"><i className="far fa-map-marker-alt" />Remote</Link></li>
-                                                            <li><Link href="/job-details"><i className="far fa-clock" />Full-time</Link></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div className="job-detail-btn">
-                                                        <Link href="/job-details.btn">View job<i className="far fa-arrow-right" /></Link>
-                                                    </div>
+                                            </li>
+                                            <li className="threeelist">
+                                                <div className="counter-item-three">
+                                                    <h2 className="count">4K</h2>
+                                                    <p>Powerful AI Tools</p>
                                                 </div>
-                                                <div className="job-item">
-                                                    <div className="job-content">
-                                                        <h2 className="title"><Link href="/job-details">Content Writer</Link></h2>
-                                                        <p>We're looking for a content writer to join our team.</p>
-                                                        <ul className="list-wrap">
-                                                            <li><Link href="/job-details"><i className="far fa-map-marker-alt" />Remote</Link></li>
-                                                            <li><Link href="/job-details"><i className="far fa-clock" />Full-time</Link></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div className="job-detail-btn">
-                                                        <Link href="/job-details.btn">View job<i className="far fa-arrow-right" /></Link>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className={activeIndex == 3 ? "tab-pane fade show active" : "tab-pane fade"}>
-                                            <div className="job-item-wrap">
-                                                <div className="job-item">
-                                                    <div className="job-content">
-                                                        <h2 className="title"><Link href="/job-details">Customer Success Manager</Link></h2>
-                                                        <p>We're looking for an experienced senior softwar engineer to join our team.</p>
-                                                        <ul className="list-wrap">
-                                                            <li><Link href="/job-details"><i className="far fa-map-marker-alt" />Remote</Link></li>
-                                                            <li><Link href="/job-details"><i className="far fa-clock" />Full-time</Link></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div className="job-detail-btn">
-                                                        <Link href="/job-details.btn">View job<i className="far fa-arrow-right" /></Link>
-                                                    </div>
-                                                </div>
-                                                <div className="job-item">
-                                                    <div className="job-content">
-                                                        <h2 className="title"><Link href="/job-details">Product Designer</Link></h2>
-                                                        <p>We're looking for a mid-level product designer to join our team.</p>
-                                                        <ul className="list-wrap">
-                                                            <li><Link href="/job-details"><i className="far fa-map-marker-alt" />Remote</Link></li>
-                                                            <li><Link href="/job-details"><i className="far fa-clock" />Full-time</Link></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div className="job-detail-btn">
-                                                        <Link href="/job-details.btn">View job<i className="far fa-arrow-right" /></Link>
-                                                    </div>
-                                                </div>
-                                                <div className="job-item">
-                                                    <div className="job-content">
-                                                        <h2 className="title"><Link href="/job-details">Engineering Manager</Link></h2>
-                                                        <p>We're looking for a engineering manager to join our team.</p>
-                                                        <ul className="list-wrap">
-                                                            <li><Link href="/job-details"><i className="far fa-map-marker-alt" />Remote</Link></li>
-                                                            <li><Link href="/job-details"><i className="far fa-clock" />Full-time</Link></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div className="job-detail-btn">
-                                                        <Link href="/job-details.btn">View job<i className="far fa-arrow-right" /></Link>
-                                                    </div>
-                                                </div>
-                                                <div className="job-item">
-                                                    <div className="job-content">
-                                                        <h2 className="title"><Link href="/job-details">Content Writer</Link></h2>
-                                                        <p>We're looking for a content writer to join our team.</p>
-                                                        <ul className="list-wrap">
-                                                            <li><Link href="/job-details"><i className="far fa-map-marker-alt" />Remote</Link></li>
-                                                            <li><Link href="/job-details"><i className="far fa-clock" />Full-time</Link></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div className="job-detail-btn">
-                                                        <Link href="/job-details.btn">View job<i className="far fa-arrow-right" /></Link>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className={activeIndex == 4 ? "tab-pane fade show active" : "tab-pane fade"}>
-                                            <div className="job-item-wrap">
-                                                <div className="job-item">
-                                                    <div className="job-content">
-                                                        <h2 className="title"><Link href="/job-details">Senior Software Engineer</Link></h2>
-                                                        <p>We're looking for an experienced senior softwar engineer to join our team.</p>
-                                                        <ul className="list-wrap">
-                                                            <li><Link href="/job-details"><i className="far fa-map-marker-alt" />Remote</Link></li>
-                                                            <li><Link href="/job-details"><i className="far fa-clock" />Full-time</Link></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div className="job-detail-btn">
-                                                        <Link href="/job-details.btn">View job<i className="far fa-arrow-right" /></Link>
-                                                    </div>
-                                                </div>
-                                                <div className="job-item">
-                                                    <div className="job-content">
-                                                        <h2 className="title"><Link href="/job-details">Product Designer</Link></h2>
-                                                        <p>We're looking for a mid-level product designer to join our team.</p>
-                                                        <ul className="list-wrap">
-                                                            <li><Link href="/job-details"><i className="far fa-map-marker-alt" />Remote</Link></li>
-                                                            <li><Link href="/job-details"><i className="far fa-clock" />Full-time</Link></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div className="job-detail-btn">
-                                                        <Link href="/job-details.btn">View job<i className="far fa-arrow-right" /></Link>
-                                                    </div>
-                                                </div>
-                                                <div className="job-item">
-                                                    <div className="job-content">
-                                                        <h2 className="title"><Link href="/job-details">Backend Developer</Link></h2>
-                                                        <p>We're looking for an experienced backend developer to join our team.</p>
-                                                        <ul className="list-wrap">
-                                                            <li><Link href="/job-details"><i className="far fa-map-marker-alt" />Remote</Link></li>
-                                                            <li><Link href="/job-details"><i className="far fa-clock" />Full-time</Link></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div className="job-detail-btn">
-                                                        <Link href="/job-details.btn">View job<i className="far fa-arrow-right" /></Link>
-                                                    </div>
-                                                </div>
-                                                <div className="job-item">
-                                                    <div className="job-content">
-                                                        <h2 className="title"><Link href="/job-details">Engineering Manager</Link></h2>
-                                                        <p>We're looking for a engineering manager to join our team.</p>
-                                                        <ul className="list-wrap">
-                                                            <li><Link href="/job-details"><i className="far fa-map-marker-alt" />Remote</Link></li>
-                                                            <li><Link href="/job-details"><i className="far fa-clock" />Full-time</Link></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div className="job-detail-btn">
-                                                        <Link href="/job-details.btn">View job<i className="far fa-arrow-right" /></Link>
-                                                    </div>
-                                                </div>
-                                                <div className="job-item">
-                                                    <div className="job-content">
-                                                        <h2 className="title"><Link href="/job-details">Content Writer</Link></h2>
-                                                        <p>We're looking for a content writer to join our team.</p>
-                                                        <ul className="list-wrap">
-                                                            <li><Link href="/job-details"><i className="far fa-map-marker-alt" />Remote</Link></li>
-                                                            <li><Link href="/job-details"><i className="far fa-clock" />Full-time</Link></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div className="job-detail-btn">
-                                                        <Link href="/job-details.btn">View job<i className="far fa-arrow-right" /></Link>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className={activeIndex == 5 ? "tab-pane fade show active" : "tab-pane fade"}>
-                                            <div className="job-item-wrap">
-                                                <div className="job-item">
-                                                    <div className="job-content">
-                                                        <h2 className="title"><Link href="/job-details">Senior Software Engineer</Link></h2>
-                                                        <p>We're looking for an experienced senior softwar engineer to join our team.</p>
-                                                        <ul className="list-wrap">
-                                                            <li><Link href="/job-details"><i className="far fa-map-marker-alt" />Remote</Link></li>
-                                                            <li><Link href="/job-details"><i className="far fa-clock" />Full-time</Link></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div className="job-detail-btn">
-                                                        <Link href="/job-details.btn">View job<i className="far fa-arrow-right" /></Link>
-                                                    </div>
-                                                </div>
-                                                <div className="job-item">
-                                                    <div className="job-content">
-                                                        <h2 className="title"><Link href="/job-details">Customer Success Manager</Link></h2>
-                                                        <p>We're looking for an experienced senior softwar engineer to join our team.</p>
-                                                        <ul className="list-wrap">
-                                                            <li><Link href="/job-details"><i className="far fa-map-marker-alt" />Remote</Link></li>
-                                                            <li><Link href="/job-details"><i className="far fa-clock" />Full-time</Link></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div className="job-detail-btn">
-                                                        <Link href="/job-details.btn">View job<i className="far fa-arrow-right" /></Link>
-                                                    </div>
-                                                </div>
-                                                <div className="job-item">
-                                                    <div className="job-content">
-                                                        <h2 className="title"><Link href="/job-details">Product Designer</Link></h2>
-                                                        <p>We're looking for a mid-level product designer to join our team.</p>
-                                                        <ul className="list-wrap">
-                                                            <li><Link href="/job-details"><i className="far fa-map-marker-alt" />Remote</Link></li>
-                                                            <li><Link href="/job-details"><i className="far fa-clock" />Full-time</Link></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div className="job-detail-btn">
-                                                        <Link href="/job-details.btn">View job<i className="far fa-arrow-right" /></Link>
-                                                    </div>
-                                                </div>
-                                                <div className="job-item">
-                                                    <div className="job-content">
-                                                        <h2 className="title"><Link href="/job-details">Content Writer</Link></h2>
-                                                        <p>We're looking for a content writer to join our team.</p>
-                                                        <ul className="list-wrap">
-                                                            <li><Link href="/job-details"><i className="far fa-map-marker-alt" />Remote</Link></li>
-                                                            <li><Link href="/job-details"><i className="far fa-clock" />Full-time</Link></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div className="job-detail-btn">
-                                                        <Link href="/job-details.btn">View job<i className="far fa-arrow-right" /></Link>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className={activeIndex == 6 ? "tab-pane fade show active" : "tab-pane fade"}>
-                                            <div className="job-item-wrap">
-                                                <div className="job-item">
-                                                    <div className="job-content">
-                                                        <h2 className="title"><Link href="/job-details">Product Designer</Link></h2>
-                                                        <p>We're looking for a mid-level product designer to join our team.</p>
-                                                        <ul className="list-wrap">
-                                                            <li><Link href="/job-details"><i className="far fa-map-marker-alt" />Remote</Link></li>
-                                                            <li><Link href="/job-details"><i className="far fa-clock" />Full-time</Link></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div className="job-detail-btn">
-                                                        <Link href="/job-details.btn">View job<i className="far fa-arrow-right" /></Link>
-                                                    </div>
-                                                </div>
-                                                <div className="job-item">
-                                                    <div className="job-content">
-                                                        <h2 className="title"><Link href="/job-details">Senior Software Engineer</Link></h2>
-                                                        <p>We're looking for an experienced senior softwar engineer to join our team.</p>
-                                                        <ul className="list-wrap">
-                                                            <li><Link href="/job-details"><i className="far fa-map-marker-alt" />Remote</Link></li>
-                                                            <li><Link href="/job-details"><i className="far fa-clock" />Full-time</Link></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div className="job-detail-btn">
-                                                        <Link href="/job-details.btn">View job<i className="far fa-arrow-right" /></Link>
-                                                    </div>
-                                                </div>
-                                                <div className="job-item">
-                                                    <div className="job-content">
-                                                        <h2 className="title"><Link href="/job-details">Customer Success Manager</Link></h2>
-                                                        <p>We're looking for an experienced senior softwar engineer to join our team.</p>
-                                                        <ul className="list-wrap">
-                                                            <li><Link href="/job-details"><i className="far fa-map-marker-alt" />Remote</Link></li>
-                                                            <li><Link href="/job-details"><i className="far fa-clock" />Full-time</Link></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div className="job-detail-btn">
-                                                        <Link href="/job-details.btn">View job<i className="far fa-arrow-right" /></Link>
-                                                    </div>
-                                                </div>
-                                                <div className="job-item">
-                                                    <div className="job-content">
-                                                        <h2 className="title"><Link href="/job-details">Backend Developer</Link></h2>
-                                                        <p>We're looking for an experienced backend developer to join our team.</p>
-                                                        <ul className="list-wrap">
-                                                            <li><Link href="/job-details"><i className="far fa-map-marker-alt" />Remote</Link></li>
-                                                            <li><Link href="/job-details"><i className="far fa-clock" />Full-time</Link></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div className="job-detail-btn">
-                                                        <Link href="/job-details.btn">View job<i className="far fa-arrow-right" /></Link>
-                                                    </div>
-                                                </div>
-                                                <div className="job-item">
-                                                    <div className="job-content">
-                                                        <h2 className="title"><Link href="/job-details">Engineering Manager</Link></h2>
-                                                        <p>We're looking for a engineering manager to join our team.</p>
-                                                        <ul className="list-wrap">
-                                                            <li><Link href="/job-details"><i className="far fa-map-marker-alt" />Remote</Link></li>
-                                                            <li><Link href="/job-details"><i className="far fa-clock" />Full-time</Link></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div className="job-detail-btn">
-                                                        <Link href="/job-details.btn">View job<i className="far fa-arrow-right" /></Link>
-                                                    </div>
-                                                </div>
-                                                <div className="job-item">
-                                                    <div className="job-content">
-                                                        <h2 className="title"><Link href="/job-details">Content Writer</Link></h2>
-                                                        <p>We're looking for a content writer to join our team.</p>
-                                                        <ul className="list-wrap">
-                                                            <li><Link href="/job-details"><i className="far fa-map-marker-alt" />Remote</Link></li>
-                                                            <li><Link href="/job-details"><i className="far fa-clock" />Full-time</Link></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div className="job-detail-btn">
-                                                        <Link href="/job-details.btn">View job<i className="far fa-arrow-right" /></Link>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                            </li>
+                                           
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </section>
+                    </section>
 
+                    {/* help-area-end */}
+                </div>
             </Layout>
         </>
     )
