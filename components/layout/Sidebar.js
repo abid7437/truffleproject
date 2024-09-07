@@ -22,8 +22,10 @@ export default function Sidebar() {
     return (
         <>
             <ul className="navigation">
-            <li><Link href="/index">Home</Link></li>
+            <li><Link href="/">Home</Link></li>
                 <li><Link href="/contact">contacts</Link></li>
+                <li><Link href="/#pricing">Pricing</Link></li>
+                <li><Link href="/demo">Demo</Link></li>
             </ul>
 
         </>

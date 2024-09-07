@@ -26,10 +26,11 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu }) {
                                         </div>
                                         <div className="header-action d-none d-md-block">
                                             <ul className="list-wrap">
+                                            <li className="header-btn"><Link href="/demo" className="btn btn-primary">Request Demo</Link></li>
                                                 <li className="header-lang">
                                                     <LanguageDropdown />
                                                 </li>
-                                                <li className="header-btn"><Link href="/demo" className="btn">Demo</Link></li>
+                                              
                                                 <li className="header-btn"><Link href="/login" className="btn">sign up</Link></li>
                                             </ul>
                                         </div>

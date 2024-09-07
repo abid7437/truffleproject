@@ -19,6 +19,22 @@ export default function Login() {
                                     <h3 className="title">Create your account</h3>
                                     <span>👋 Welcome back! Please enter your details.</span>
                                     <form action="#">
+                                    <div className="form-grp">
+                                            <label htmlFor="name">Full Name</label>
+                                            <input type="text" id="name" />
+                                        </div>
+                                        <div className="form-grp">
+                                            <label htmlFor="phone">Phone</label>
+                                            <input type="phone" id="phone" />
+                                        </div>
+                                        <div className="form-grp">
+                                            <label htmlFor="country">Country</label>
+                                            <input type="text" id="country" />
+                                        </div>
+                                        <div className="form-grp">
+                                            <label htmlFor="word">Password</label>
+                                            <input type="password" id="word" />
+                                        </div>
                                         <div className="form-grp">
                                             <label htmlFor="email">Your Email</label>
                                             <input type="email" id="email" />
