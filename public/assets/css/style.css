@@ -7098,5 +7098,11 @@ padding: 20px 7px;
     height: auto;
 }
 .threeelist{
-    width: 100%;
+    width: 100% !important;
+}
+.wavediv{
+    width:100%;
+}
+.wavediv img{
+
 }

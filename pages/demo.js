@@ -53,21 +53,20 @@ export default function Job() {
                                             <li>
                                                 <div className="counter-item-three">
                                                 <div className="icon">
-                                                        <img id="uploadicon" src="assets/img/voice/upload.png"  alt="" />
+                                                        <img id="uploadicon" src="assets/img/voice/playicon.png"  alt="" />
                                                     </div>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div className="counter-item-three">
                                                 <div className="icon">
-                                                        <img id="uploadicon" src="assets/img/voice/upload.png"  alt="" />
+                                                        <img id="uploadicon" src="assets/img/voice/download.png"  alt="" />
                                                     </div>
                                                 </div>
                                             </li>
                                             <li className="threeelist">
-                                                <div className="counter-item-three">
-                                                    <h2 className="count">4K</h2>
-                                                    <p>Powerful AI Tools</p>
+                                                <div className="counter-item-three wavediv">
+                                                <img src="/assets/img/voice/WAVE.png"></img>
                                                 </div>
                                             </li>
                                            
