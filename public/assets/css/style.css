@@ -7103,6 +7103,23 @@ padding: 20px 7px;
 .wavediv{
     width:100%;
 }
-.wavediv img{
-
+.uploadarea{
+    width: 100%;
+}
+.messagealert{
+    margin:0px
+}
+.audiolist{
+    padding:15px;
+    margin:0px
+}
+.audiolist .job-item{
+  display: block; 
+  padding:4px 4px 
+}
+.audiolist .job-item p{
+    margin:0px 
+  }
+.wafeformmainclass{
+    display: flex;
 }

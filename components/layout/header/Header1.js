@@ -31,7 +31,7 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu }) {
                                                     <LanguageDropdown />
                                                 </li>
                                               
-                                                <li className="header-btn"><Link href="/login" className="btn">sign up</Link></li>
+                                                <li className="header-btn"><Link href="/login" className="btn">sign in</Link></li>
                                             </ul>
                                         </div>
                                     </nav>

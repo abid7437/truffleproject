@@ -1,65 +1,39 @@
+
 import Layout from "@/components/layout/Layout"
 import Link from "next/link"
-import { useState ,useRef,useEffect} from 'react'
-import WaveSurfer from 'wavesurfer.js';
+import { useState, useRef, useEffect } from 'react'
+import Waveform from "@/components/elements/Waveform"
 
+
+
+const audioFiles = [
+    {
+        url: '/assets/audio/sampleaudio.mp3',
+        waveColor: '#FFFFFF',
+        progressColor: 'red',
+        size: { height: 50, barHeight: 20, barRadius: 2, barWidth: 3 },
+        filename: 'audio1.mp3',
+    },
+    {
+        url: '/assets/audio/sampleaudio.mp3',
+        waveColor: '#FFFFFF',
+        progressColor: 'green',
+        size: { height: 50, barHeight: 20, barRadius: 2, barWidth: 3 },
+        filename: 'audio2.mp3',
+    },
+    {
+        url: '/assets/audio/sampleaudio.mp3',
+        waveColor: '#FFFFFF',
+        progressColor: 'red',
+        size: { height: 50, barHeight: 20, barRadius: 2, barWidth: 2 },
+        filename: 'audio3.mp3',
+    },
+];
 
 export default function Job() {
     const [activeIndex, setActiveIndex] = useState(1)
-    const waveformRef = useRef(null);
-    let wavesurfer;
-    const [playPause, setPlayPause] = useState();
-  
-    useEffect(() => {
-      wavesurfer = WaveSurfer.create({
-        container: waveformRef.current,
-        waveColor: "#ffffff",
-        progressColor: "#FF0000",
-        url: "assets/audio/sampleaudio.mp3",
-        dragToSeek: true,
-        width: "60vw",
-        hideScrollbar: true,
-        normalize: true,
-        barGap: 1,
-        height: 80,
-        barHeight: 20,
-        barRadius: 5,
-        barWidth: 3,
-      });
-  
-      wavesurfer.on("finish", () => {
-        console.log("song finished");
-      });
-  
-      wavesurfer.on("ready", () => {
-        console.log("Waveform is ready");
-      });
-      return () => {
-        wavesurfer.destroy();
-      };
-    }, []);
-    const handleStop = () => {
-      if (wavesurfer) {
-        wavesurfer.stop();
-      }
-    };
-    const handlePause = () => {
-      if (wavesurfer) {
-        wavesurfer.playPause();
-      }
-    };
-  
-    const handleSkipForward = () => {
-      if (wavesurfer) {
-        wavesurfer.skip(2);
-      }
-    };
-    const handleSkipBack = () => {
-      if (wavesurfer) {
-        wavesurfer.skip(-2);
-      }
-    };
-
+    const [isImageVisible, setImageVisible] = useState(true)
+    const [files, setFiles] = useState(audioFiles);
 
     const handleOnClick = (index) => {
         setActiveIndex(index)
@@ -74,35 +48,47 @@ export default function Job() {
                     {/* help-area */}
                     <section className="help-area pb-50">
                         <div className="container">
-
-                            <div className="row justify-content-center">
-
-
-                                <div className="col-md-12">
-                                    <div className="help-center-item">
+                            <div className="row">
+                                <div className="col-lg-3">
+                                    <div className="responds-wrap uploadarea">
                                         <div className="icon">
                                             <img id="uploadicon" src="assets/img/voice/upload.png" alt="" />
                                         </div>
-                                        <div className="content">
+                                        <div className="content pb-20">
                                             <a >Upload File</a>
                                             <p>The best way to get answer faster.</p>
+                                        </div>
+                                        <div className="content">
+                                            <div className="pricing-btn">
+                                                <Link href="/login" className="btn btn-two">Upload</Link>
+                                            </div>
                                         </div>
                                     </div>
 
                                 </div>
+                                <div className="col-lg-9">
+                                    <div className="contact-form audiolist">
+                                        <div className="job-item-wrap">
+                                            {files.map((audio, index) => (
+                                                <div className="job-item" key={index}>
+                                                    <p>{audio.filename}</p>
+                                                    <Waveform
+                                                        audioUrl={audio.url}
+                                                        waveColor={audio.waveColor}
+                                                        progressColor={audio.progressColor}
+                                                        size={audio.size}
+                                                        filename={audio.filename}
+                                                    />
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
+
                         </div>
                     </section>
-                    <section className="job-area pb-50">
-                    <div className="container">
-                        <div className="job-item-wrap">
-                            <div className="job-item">
-                            <img id="uploadicon" src="assets/img/voice/playicon.png" alt="" /> <div ref={waveformRef} />
-                            </div>
-                        </div>
-                        
-</div>
-                    </section>
+
                     <section className="counter-area-three pb-130">
                         <div className="container">
                             <div className="row">
@@ -120,7 +106,13 @@ export default function Job() {
                                             <li>
                                                 <div className="counter-item-three">
                                                     <div className="icon">
-                                                        <img id="uploadicon" src="assets/img/voice/playicon.png" alt="" />
+                                                        {isImageVisible && (
+                                                            <img id="uploadicon" src="assets/img/voice/playicon.png" onClick={() => handlePlay()} />
+                                                        )}
+                                                        {!isImageVisible && (
+                                                            <img id="uploadicon" src="assets/img/voice/pauseicon.png" onClick={() => handlePause()} />
+                                                        )}
+
                                                     </div>
                                                 </div>
                                             </li>
@@ -133,7 +125,6 @@ export default function Job() {
                                             </li>
                                             <li className="threeelist">
                                                 <div className="counter-item-three wavediv">
-                                                    <img src="/assets/img/voice/wavenew.png"></img>
                                                 </div>
                                             </li>
 
@@ -143,7 +134,7 @@ export default function Job() {
                             </div>
                         </div>
                     </section>
-                  
+
                     {/* help-area-end */}
                 </div>
             </Layout>
