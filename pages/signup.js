@@ -1,8 +1,51 @@
 import DataBg from "@/components/elements/DataBg"
 import Header1 from "@/components/layout/header/Header1"
 import Header2 from "@/components/layout/header/Header2"
+import { useState, useRef, useEffect } from 'react'
 
 export default function Login() {
+
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [phone, setPhone] = useState('');
+    const [country, setCountry] = useState('');
+  
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
+    const [success, setSuccess] = useState(null);
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+    
+        setLoading(true);
+        setError(null);
+        setSuccess(null);
+    
+        const postData = { firstName, lastName,email,password };
+    
+        try {
+          const token = localStorage.getItem('jwt');
+          const response = await fetch('http://localhost:8000/apiregister', {
+            method: 'POST',
+            body: JSON.stringify(postData),
+          });
+    
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+    
+          const result = await response.json();
+          console.log(result);
+          setSuccess('User registered successfully!');
+          router.push('/login');
+        } catch (error) {
+          setError(error.message);
+        } finally {
+          setLoading(false);
+        }
+      };
 
     return (
         <>
@@ -18,10 +61,14 @@ export default function Login() {
                                 <div className="login-content">
                                     <h3 className="title">Create your account</h3>
                                     <span>👋 Welcome back! Please enter your details.</span>
-                                    <form action="#">
+                                    <form  onSubmit={handleSubmit}>
                                     <div className="form-grp">
-                                            <label htmlFor="name">Full Name</label>
-                                            <input type="text" id="name" />
+                                            <label htmlFor="name">First Name</label>
+                                            <input type="text" id="firstName" />
+                                        </div>
+                                        <div className="form-grp">
+                                            <label htmlFor="phone">Last Name</label>
+                                            <input type="text" id="lastName" />
                                         </div>
                                         <div className="form-grp">
                                             <label htmlFor="phone">Phone</label>
@@ -32,27 +79,17 @@ export default function Login() {
                                             <input type="text" id="country" />
                                         </div>
                                         <div className="form-grp">
-                                            <label htmlFor="word">Password</label>
-                                            <input type="password" id="word" />
-                                        </div>
-                                        <div className="form-grp">
                                             <label htmlFor="email">Your Email</label>
                                             <input type="email" id="email" />
                                         </div>
                                         <div className="form-grp">
                                             <label htmlFor="word">Password</label>
-                                            <input type="password" id="word" />
+                                            <input type="password" id="password" />
                                         </div>
-                                        <div className="password-wrap">
-                                            <div className="form-grp checkbox-grp">
-                                                <input type="checkbox" id="checkbox" className="form-check-input" />
-                                                <label htmlFor="checkbox">Remember for 30 days</label>
-                                            </div>
-                                            <button type="reset">Forgot Password</button>
-                                        </div>
-                                        <button type="submit" className="sine-btn">sing in</button>
+                                      
+                                        <button type="submit" className="sine-btn">sing up</button>
                                    
-                                        <span>Don’t have an account? <a href="/signup"></a>Sign up for free</span>
+                                        <span>have an account? <a href="/login"></a>login</span>
                                     </form>
                                 </div>
                             </div>

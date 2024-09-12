@@ -24,14 +24,10 @@ export default function Login() {
                                             <input type="email" id="email" />
                                         </div>
                                         <div className="form-grp">
-                                            <label htmlFor="word">Password</label>
-                                            <input type="password" id="word" />
+                                            <label htmlFor="password">Password</label>
+                                            <input type="password" id="password" />
                                         </div>
                                         <div className="password-wrap">
-                                            <div className="form-grp checkbox-grp">
-                                                <input type="checkbox" id="checkbox" className="form-check-input" />
-                                                <label htmlFor="checkbox">Remember for 30 days</label>
-                                            </div>
                                             <button type="reset">Forgot Password</button>
                                         </div>
                                         <button type="submit" className="sine-btn">sing in</button>
