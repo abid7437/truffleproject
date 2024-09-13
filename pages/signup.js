@@ -3,10 +3,12 @@ import Header1 from "@/components/layout/header/Header1"
 import Header2 from "@/components/layout/header/Header2"
 import { useState, useRef, useEffect } from 'react'
 
-export default function Login() {
+import { useRouter } from 'next/navigation';
 
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
+export default function Login() {
+    const router = useRouter();
+    const [first_name, setFirstName] = useState('');
+    const [last_name, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [phone, setPhone] = useState('');
@@ -23,12 +25,15 @@ export default function Login() {
         setError(null);
         setSuccess(null);
     
-        const postData = { firstName, lastName,email,password };
+        const postData = { first_name, last_name,phone,country,email,password };
     
         try {
-          const token = localStorage.getItem('jwt');
-          const response = await fetch('http://localhost:8000/apiregister', {
+         
+          const response = await fetch('http://localhost:8000/apiregister/', {
             method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+              },
             body: JSON.stringify(postData),
           });
     
@@ -63,28 +68,46 @@ export default function Login() {
                                     <span>👋 Welcome back! Please enter your details.</span>
                                     <form  onSubmit={handleSubmit}>
                                     <div className="form-grp">
-                                            <label htmlFor="name">First Name</label>
-                                            <input type="text" id="firstName" />
+                                            <label htmlFor="first_name">First Name</label>
+                                            <input type="text" id="first_name"
+                                             value={first_name}
+                                             onChange={(e) => setFirstName(e.target.value)}
+                                            />
                                         </div>
                                         <div className="form-grp">
-                                            <label htmlFor="phone">Last Name</label>
-                                            <input type="text" id="lastName" />
+                                            <label htmlFor="last_name">Last Name</label>
+                                            <input type="text" id="last_name"
+                                             value={last_name}
+                                             onChange={(e) => setLastName(e.target.value)}
+                                            />
                                         </div>
                                         <div className="form-grp">
                                             <label htmlFor="phone">Phone</label>
-                                            <input type="phone" id="phone" />
+                                            <input type="phone" id="phone"
+                                             value={phone}
+                                             onChange={(e) => setPhone(e.target.value)}
+                                            />
                                         </div>
                                         <div className="form-grp">
                                             <label htmlFor="country">Country</label>
-                                            <input type="text" id="country" />
+                                            <input type="text" id="country"
+                                             value={country}
+                                             onChange={(e) => setCountry(e.target.value)}
+                                            />
                                         </div>
                                         <div className="form-grp">
                                             <label htmlFor="email">Your Email</label>
-                                            <input type="email" id="email" />
+                                            <input type="email" id="email"
+                                             value={email}
+                                             onChange={(e) => setEmail(e.target.value)}
+                                            />
                                         </div>
                                         <div className="form-grp">
                                             <label htmlFor="word">Password</label>
-                                            <input type="password" id="password" />
+                                            <input type="password" id="password"
+                                             value={password}
+                                             onChange={(e) => setPassword(e.target.value)}
+                                            />
                                         </div>
                                       
                                         <button type="submit" className="sine-btn">sing up</button>
