@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import WaveSurfer from 'wavesurfer.js';
 import { FaPlay, FaPause } from 'react-icons/fa';
 
-const Waveform = ({ audioUrl, waveColor, progressColor, size, filename,IsReal,forHome }) => {
+const Waveform = ({ audioUrl, waveColor, progressColor, size, filename,IsReal,forHome,onPlay,audioId }) => {
   const waveformRef = useRef(null);
   const wavesurferRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -34,17 +34,19 @@ const Waveform = ({ audioUrl, waveColor, progressColor, size, filename,IsReal,fo
     if (wavesurferRef.current) {
       if (isPlaying) {
         wavesurferRef.current.pause();
+        setIsPlaying(false);
       } else {
         wavesurferRef.current.play();
+        setIsPlaying(true);
+        if (onPlay) onPlay(); // Notify parent component
       }
-      setIsPlaying(!isPlaying);
     }
   };
-
   return (
     <div className='wafeformmainclass'>
         <button 
         onClick={togglePlayPause} 
+        data-id={audioId}
         style={{ display: 'flex', alignItems: 'center', marginTop: '0px 10px', border: 'none', background: 'none' }}
       >
         <img 

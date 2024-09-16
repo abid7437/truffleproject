@@ -10,6 +10,7 @@ import { useRouter } from 'next/navigation';
 
 const audioFiles = [
     {
+        id:1,
         url: '/assets/audio/sampleaudio.mp3',
         waveColor: '#FFFFFF',
         progressColor: 'red',
@@ -17,7 +18,8 @@ const audioFiles = [
         filename: 'audio1.mp3',
         isReal:false
     },
-    {
+    {  
+        id:2,
         url: '/assets/audio/sampleaudio.mp3',
         waveColor: '#FFFFFF',
         progressColor: 'green',
@@ -26,6 +28,7 @@ const audioFiles = [
         isReal:true
     },
     {
+        id:3,
         url: '/assets/audio/sampleaudio.mp3',
         waveColor: '#FFFFFF',
         progressColor: 'red',
@@ -41,7 +44,7 @@ export default function Job() {
     const [isImageVisible, setImageVisible] = useState(true)
     const [files, setFiles] = useState(audioFiles);
     const [IsChecked, setIsChecked] = useState(true)
-
+    const [currentPlaying, setCurrentPlaying] = useState(null);
 
     const [tokan, setToken] = useState("")
     useEffect(() => {
@@ -59,6 +62,15 @@ export default function Job() {
     const handleChange=(checked) =>{
         setIsChecked(!checked);
       }
+
+     
+
+      const handlePlay = (id) => {
+        if (currentPlaying && currentPlaying !== id) {
+          document.querySelector(`button[data-id="${currentPlaying}"]`).click();
+        }
+        setCurrentPlaying(id);
+      };
 
     return (
         <>
@@ -124,12 +136,15 @@ export default function Job() {
                                                 <div className="job-item" key={index}>
                                                  
                                                     <Waveform
+                                                        key={audio.id}
                                                         audioUrl={audio.url}
                                                         waveColor={audio.waveColor}
                                                         progressColor={audio.progressColor}
                                                         size={audio.size}
                                                         filename={audio.filename}
                                                         IsReal={audio.isReal}
+                                                        onPlay={() => handlePlay(audio.id)}
+                                                        audioId={audio.id}
                                                     />
                                                 </div>
                                             ))}
